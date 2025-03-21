@@ -1,73 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - 熊仕朗</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('https://c-ssl.dtstatic.com/uploads/item/202002/19/20200219163809_ZGVNh.thumb.1000_0.jpeg'); /* 使用你提供的图片链接 */
-            background-size: cover; /* 背景图片覆盖整个屏幕 */
-            background-position: center center; /* 背景图片居中 */
-            background-attachment: fixed; /* 背景固定 */
-            color: white; /* 确保文字颜色可读 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px;
-            background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto;
-            display: block;
-        }
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #555;
-        }
-        .info-title {
-            font-weight: bold;
-        }
-        .page {
-            page-break-before: always;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume - 熊仕朗</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://c-ssl.dtstatic.com/uploads/item/202002/19/20200219163809_ZGVNh.thumb.1000_0.jpeg');
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 800px;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      margin-bottom: 40px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #222;
+      position: relative;
+    }
+
+    h1::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: #00aaff;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00aaff;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #444;
+      margin: 10px 0;
+    }
+
+    .info-title {
+      font-weight: bold;
+      color: #0077aa;
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin-top: 30px;
+      border-left: 6px solid #00aaff;
+      padding-left: 10px;
+      color: #222;
+    }
+
+    .skills {
+      margin-top: 20px;
+    }
+
+    .skill-bar {
+      margin-bottom: 15px;
+    }
+
+    .skill-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .bar {
+      height: 10px;
+      background: #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background-color: #00aaff;
+      border-radius: 5px;
+      width: 0;
+      animation: fillBar 2s forwards;
+    }
+
+    @keyframes fillBar {
+      to {
+        width: var(--percent);
+      }
+    }
+
+    .page {
+      page-break-before: always;
+    }
+
+    .container:hover {
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 第一页内容 -->
-        <h1>熊仕朗</h1>
-        <img class="profile-image" src="file-JdtpKnv5wPgfK9eQtaPGhU" alt="Profile Picture">
-        <p><span class="info-title">学号:</span> 202403120027</p>
-        <p><span class="info-title">院校:</span> 华中农业大学</p>
-        <p><span class="info-title">学院:</span> 资源与环境学院</p>
-        <p><span class="info-title">电话:</span> 15377688256</p>
-        <p><span class="info-title">爱好:</span> 弹吉他和打篮球</p>
-        <p><span class="info-title">本科毕业院校:</span> 湖北大学 资源与环境学院</p>
-    </div>
+  <!-- 第一页 -->
+  <div class="container">
+    <h1>熊仕朗</h1>
+    <img class="profile-image" src="https://via.placeholder.com/120" alt="Profile Picture"/>
+    <p><span class="info-title">学号:</span> 202403120027</p>
+    <p><span class="info-title">院校:</span> 华中农业大学</p>
+    <p><span class="info-title">学院:</span> 资源与环境学院</p>
+    <p><span class="info-title">电话:</span> 15377688256</p>
+    <p><span class="info-title">爱好:</span> 弹吉他和打篮球</p>
+    <p><span class="info-title">本科毕业院校:</span> 湖北大学 资源与环境学院</p>
 
-    <!-- 第二页内容 -->
-    <div class="container page">
-        <p>很高兴跟着老师学习GitHub，从讲义中学到很多内容，课余时间摸索了多种多种的内容。现在尝试学习更多的编程软件，我觉得这是兴趣的起点。</p>
+    <div class="skills">
+      <div class="section-title">技能</div>
+      <div class="skill-bar">
+        <div class="skill-name">Git & GitHub</div>
+        <div class="bar">
+          <div class="bar-fill" style="--percent: 85%;"></div>
+        </div>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-name">HTML/CSS</div>
+        <div class="bar">
+          <div class="bar-fill" style="--percent: 75%;"></div>
+        </div>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-name">Python</div>
+        <div class="bar">
+          <div class="bar-fill" style="--percent: 60%;"></div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- 第二页 -->
+  <div class="container page">
+    <div class="section-title">学习经历</div>
+    <p>很高兴跟着老师学习 GitHub，从讲义中学到很多内容，课余时间也尝试了多种工具和软件。目前正进一步学习前端与 Python 编程，逐渐找到属于自己的兴趣方向。</p>
+  </div>
 </body>
 </html>
 
