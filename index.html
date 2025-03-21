@@ -2,9 +2,10 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume - 熊仕朗</title>
   <style>
+    /* 全局样式 */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -22,6 +23,7 @@
       box-sizing: border-box;
     }
 
+    /* 容器样式 */
     .container {
       max-width: 800px;
       background-color: rgba(255, 255, 255, 0.95);
@@ -30,13 +32,26 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       margin-bottom: 40px;
       animation: fadeIn 1s ease-in-out;
+      transition: box-shadow 0.3s ease-in-out;
     }
 
+    .container:hover {
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 动画效果 */
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
+    /* 标题样式 */
     h1 {
       text-align: center;
       font-size: 32px;
@@ -55,6 +70,7 @@
       border-radius: 2px;
     }
 
+    /* 个人信息样式 */
     .profile-image {
       width: 120px;
       height: 120px;
@@ -77,6 +93,7 @@
       color: #0077aa;
     }
 
+    /* 分区标题样式 */
     .section-title {
       font-size: 20px;
       margin-top: 30px;
@@ -85,6 +102,7 @@
       color: #222;
     }
 
+    /* 技能条样式 */
     .skills {
       margin-top: 20px;
     }
@@ -119,13 +137,9 @@
       }
     }
 
+    /* 分页样式 */
     .page {
       page-break-before: always;
-    }
-
-    .container:hover {
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-      transition: box-shadow 0.3s ease-in-out;
     }
   </style>
 </head>
@@ -133,7 +147,7 @@
   <!-- 第一页 -->
   <div class="container">
     <h1>熊仕朗</h1>
-    <img class="profile-image" src="https://via.placeholder.com/120" alt="Profile Picture"/>
+    <img class="profile-image" src="https://via.placeholder.com/120" alt="Profile Picture" />
     <p><span class="info-title">学号:</span> 202403120027</p>
     <p><span class="info-title">院校:</span> 华中农业大学</p>
     <p><span class="info-title">学院:</span> 资源与环境学院</p>
@@ -171,4 +185,3 @@
   </div>
 </body>
 </html>
-
