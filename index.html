@@ -9,16 +9,20 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('file-BH9X5yVKxo3LfHxRqnNku8'); /* 背景图片 */
-            background-size: cover; /* 确保图片覆盖整个屏幕 */
-            background-position: center center; /* 图片居中 */
-            background-attachment: fixed; /* 滚动时背景固定 */
-            color: white; /* 确保文字在背景上可读 */
+            background-image: url('https://c-ssl.dtstatic.com/uploads/item/202002/19/20200219163809_ZGVNh.thumb.1000_0.jpeg'); /* 使用你提供的图片链接 */
+            background-size: cover; /* 背景图片覆盖整个屏幕 */
+            background-position: center center; /* 背景图片居中 */
+            background-attachment: fixed; /* 背景固定 */
+            color: white; /* 确保文字颜色可读 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .container {
             max-width: 800px;
-            margin: 50px auto;
-            background-color: rgba(255, 255, 255, 0.8); /* 半透明背景，保证文字可读 */
+            margin: 50px;
+            background-color: rgba(255, 255, 255, 0.8); /* 半透明背景 */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -42,10 +46,14 @@
         .info-title {
             font-weight: bold;
         }
+        .page {
+            page-break-before: always;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- 第一页内容 -->
         <h1>熊仕朗</h1>
         <img class="profile-image" src="file-JdtpKnv5wPgfK9eQtaPGhU" alt="Profile Picture">
         <p><span class="info-title">学号:</span> 202403120027</p>
@@ -55,5 +63,11 @@
         <p><span class="info-title">爱好:</span> 弹吉他和打篮球</p>
         <p><span class="info-title">本科毕业院校:</span> 湖北大学 资源与环境学院</p>
     </div>
+
+    <!-- 第二页内容 -->
+    <div class="container page">
+        <p>很高兴跟着老师学习GitHub，从讲义中学到很多内容，课余时间摸索了多种多种的内容。现在尝试学习更多的编程软件，我觉得这是兴趣的起点。</p>
+    </div>
 </body>
 </html>
+
