@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume - 熊仕朗</title>
   <style>
-    /* 全局样式 */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -23,7 +22,6 @@
       box-sizing: border-box;
     }
 
-    /* 容器样式 */
     .container {
       max-width: 800px;
       background-color: rgba(255, 255, 255, 0.95);
@@ -32,26 +30,18 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       margin-bottom: 40px;
       animation: fadeIn 1s ease-in-out;
-      transition: box-shadow 0.3s ease-in-out;
+      display: none;
     }
 
-    .container:hover {
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    .container.active {
+      display: block;
     }
 
-    /* 动画效果 */
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* 标题样式 */
     h1 {
       text-align: center;
       font-size: 32px;
@@ -70,7 +60,6 @@
       border-radius: 2px;
     }
 
-    /* 个人信息样式 */
     .profile-image {
       width: 120px;
       height: 120px;
@@ -93,7 +82,6 @@
       color: #0077aa;
     }
 
-    /* 分区标题样式 */
     .section-title {
       font-size: 20px;
       margin-top: 30px;
@@ -102,7 +90,6 @@
       color: #222;
     }
 
-    /* 技能条样式 */
     .skills {
       margin-top: 20px;
     }
@@ -137,15 +124,46 @@
       }
     }
 
-    /* 分页样式 */
     .page {
       page-break-before: always;
+    }
+
+    .container:hover {
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .nav button {
+      background-color: #00aaff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 0 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background-color: #0077aa;
     }
   </style>
 </head>
 <body>
+  <!-- 目录 -->
+  <div class="nav">
+    <button onclick="showPage(1)">第一页</button>
+    <button onclick="showPage(2)">第二页</button>
+  </div>
+
   <!-- 第一页 -->
-  <div class="container">
+  <div class="container active" id="page-1">
     <h1>熊仕朗</h1>
     <img class="profile-image" src="https://via.placeholder.com/120" alt="Profile Picture" />
     <p><span class="info-title">学号:</span> 202403120027</p>
@@ -179,9 +197,18 @@
   </div>
 
   <!-- 第二页 -->
-  <div class="container page">
+  <div class="container" id="page-2">
     <div class="section-title">学习经历</div>
     <p>很高兴跟着老师学习 GitHub，从讲义中学到很多内容，课余时间也尝试了多种工具和软件。目前正进一步学习前端与 Python 编程，逐渐找到属于自己的兴趣方向。</p>
   </div>
+
+  <script>
+    function showPage(pageNumber) {
+      const pages = document.querySelectorAll('.container');
+      pages.forEach((page, index) => {
+        page.classList.toggle('active', index === pageNumber - 1);
+      });
+    }
+  </script>
 </body>
 </html>
