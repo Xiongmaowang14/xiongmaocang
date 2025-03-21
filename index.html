@@ -30,6 +30,11 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       margin-bottom: 40px;
       animation: fadeIn 1s ease-in-out;
+      display: none;
+    }
+
+    .container.active {
+      display: block;
     }
 
     @keyframes fadeIn {
@@ -118,21 +123,39 @@
       }
     }
 
-    .page {
-      page-break-before: always;
+    .nav {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
-    .container:hover {
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-      transition: box-shadow 0.3s ease-in-out;
+    .nav button {
+      background-color: #00aaff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 0 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav button:hover {
+      background-color: #0077aa;
     }
   </style>
 </head>
 <body>
+  <!-- 导航按钮 -->
+  <div class="nav">
+    <button onclick="showPage(1)">第一页</button>
+    <button onclick="showPage(2)">第二页</button>
+  </div>
+
   <!-- 第一页 -->
-  <div class="container">
+  <div class="container active" id="page-1">
     <h1>熊仕朗</h1>
-    <img class="profile-image" src="https://via.placeholder.com/120/00aaff/ffffff?text=🌳" alt="Tree Icon"/>
+    <img class="profile-image" src="https://via.placeholder.com/120" alt="Profile Picture"/>
     <p><span class="info-title">学号:</span> 202403120027</p>
     <p><span class="info-title">院校:</span> 华中农业大学</p>
     <p><span class="info-title">学院:</span> 资源与环境学院</p>
@@ -164,7 +187,7 @@
   </div>
 
   <!-- 第二页 -->
-  <div class="container page">
+  <div class="container" id="page-2">
     <div class="section-title">学习经历</div>
     <p>很高兴跟着老师学习 GitHub，从讲义中学到很多内容，课余时间也尝试了多种工具和软件。目前正进一步学习前端与 Python 编程，逐渐找到属于自己的兴趣方向。</p>
     <div class="section-title">课程建议</div>
@@ -174,5 +197,14 @@
       <li>若能在作业中增加分阶段目标（如先搭框架→再调样式→最后优化交互），学习会更清晰。</li>
     </ul>
   </div>
+
+  <script>
+    function showPage(pageNumber) {
+      const pages = document.querySelectorAll('.container');
+      pages.forEach((page, index) => {
+        page.classList.toggle('active', index === pageNumber - 1);
+      });
+    }
+  </script>
 </body>
 </html>
